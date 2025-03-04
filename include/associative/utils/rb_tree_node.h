@@ -1,9 +1,9 @@
-#ifndef SRC_INCLUDE_ASSOCIATIVE_UTILS_S21_TREE_NODE_H
-#define SRC_INCLUDE_ASSOCIATIVE_UTILS_S21_TREE_NODE_H
+#ifndef SRC_INCLUDE_ASSOCIATIVE_UTILS_TREE_NODE_H
+#define SRC_INCLUDE_ASSOCIATIVE_UTILS_TREE_NODE_H
 
 #include <memory>
 
-namespace s21 {
+namespace my_stl {
 enum ColorLeaf { Black_, Red_ };
 
 template <class _Val, class _Alloc = std::allocator<_Val>>
@@ -46,7 +46,7 @@ class TreeNode {
   }
 
   explicit TreeNode(const value_type &value, node_pointer parent,
-           const node_pointer nil) /**/
+                    const node_pointer nil) /**/
       : _color(Red_),
         _is_nil(false),
         _parent(parent),
@@ -57,8 +57,8 @@ class TreeNode {
     _alloc.construct(_value, value);
   }
 
-  explicit TreeNode(const value_type &value, node_pointer parent, const node_pointer nil,
-           char color)
+  explicit TreeNode(const value_type &value, node_pointer parent,
+                    const node_pointer nil, char color)
       : _color(color),
         _is_nil(false),
         _parent(parent),
@@ -116,6 +116,6 @@ class TreeNode {
 
   void set_color(char color) noexcept { _color = color; }
 };
-}  // namespace s21
+}  // namespace my_stl
 
-#endif  // SRC_INCLUDE_ASSOCIATIVE_UTILS_S21_TREE_NODE_H
+#endif  // SRC_INCLUDE_ASSOCIATIVE_UTILS_TREE_NODE_H

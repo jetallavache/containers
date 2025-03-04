@@ -1,9 +1,9 @@
-#ifndef SRC_INCLUDE_ASSOCIATIVE_UTILS_S21_TREE_ITER_H
-#define SRC_INCLUDE_ASSOCIATIVE_UTILS_S21_TREE_ITER_H
+#ifndef SRC_INCLUDE_ASSOCIATIVE_UTILS_TREE_ITER_H
+#define SRC_INCLUDE_ASSOCIATIVE_UTILS_TREE_ITER_H
 
 #include "rb_tree_node.h"
 
-namespace s21 {
+namespace my_stl {
 template <class _Mytree>
 class TreeConstIterator {
  public:
@@ -130,6 +130,6 @@ class TreeIterator : public TreeConstIterator<_Mytree> {
     return tmp;
   }
 };
-}  // namespace s21
+}  // namespace my_stl
 
-#endif  // SRC_INCLUDE_ASSOCIATIVE_UTILS_S21_TREE_ITER_H
+#endif  // SRC_INCLUDE_ASSOCIATIVE_UTILS_TREE_ITER_H

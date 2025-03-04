@@ -1,5 +1,5 @@
-#ifndef SRC_INCLUDE_ASSOCIATIVE_UTILS_S21_TREE_H
-#define SRC_INCLUDE_ASSOCIATIVE_UTILS_S21_TREE_H
+#ifndef SRC_INCLUDE_ASSOCIATIVE_UTILS_TREE_H
+#define SRC_INCLUDE_ASSOCIATIVE_UTILS_TREE_H
 
 #include <stddef.h>
 
@@ -22,7 +22,7 @@
   такое же количество черных узлов.
 */
 
-namespace s21 {
+namespace my_stl {
 template <class _Val, bool _Multi, class _Alloc = std::allocator<_Val>>
 class Tree {
  public:
@@ -120,7 +120,8 @@ class Tree {
   std::vector<std::pair<iterator, bool>> insert_many(Args &&...args) {
     std::vector<std::pair<iterator, bool>> vec;
 
-    /* Рассмотрите возможность использования алгоритма std::transform вместо необработанного цикла */
+    /* Рассмотрите возможность использования алгоритма std::transform вместо
+     * необработанного цикла */
     for (auto arg : {std::forward<Args>(args)...}) {
       vec.push_back(insert(arg));
     }
@@ -242,7 +243,7 @@ class Tree {
   }
 
   bool contains(const_value_reference key) noexcept {
-    return find(key) == end() ? false : true;
+    return find(key) != end();
   }
 
   void swap(Tree &other) noexcept {
@@ -282,7 +283,7 @@ class Tree {
   void emplace(node_pointer n) {
     if ((!n->_parent && !n->_left && !n->_right) || !n) {
       throw std::invalid_argument(
-          "s21::Tree  emplace(): \"x\": an undeclared identifier");
+          "my_stl::Tree  emplace(): \"x\": an undeclared identifier");
     }
 
     while (n != _root && n->_parent->_color == Red_) {
@@ -327,7 +328,7 @@ class Tree {
   void extract(node_pointer x) {
     if ((!x->_parent && !x->_left && !x->_right) || !x) {
       throw std::invalid_argument(
-          "s21::Tree  extract(): \"x\": an undeclared identifier");
+          "my_stl::Tree  extract(): \"x\": an undeclared identifier");
     }
 
     node_pointer w;
@@ -397,7 +398,7 @@ class Tree {
   void node_swap(node_pointer u, node_pointer v) {
     if ((!u->_parent && !u->_left && !u->_right) || !u) {
       throw std::invalid_argument(
-          "s21::Tree  node_swap(): \"u\": an undeclared identifier");
+          "my_stl::Tree  node_swap(): \"u\": an undeclared identifier");
     }
 
     if (u->_parent) {
@@ -417,7 +418,7 @@ class Tree {
   void right_rotate(node_pointer x) {
     if ((!x->_parent && !x->_left && !x->_right) || !x) {
       throw std::invalid_argument(
-          "s21::Tree  right_rotate(): \"x\": an undeclared identifier");
+          "my_stl::Tree  right_rotate(): \"x\": an undeclared identifier");
     }
 
     auto y = x->_left;
@@ -444,7 +445,7 @@ class Tree {
   void left_rotate(node_pointer x) {
     if ((!x->_parent && !x->_left && !x->_right) || !x) {
       throw std::invalid_argument(
-          "s21::Tree  left_rotate(): \"x\": an undeclared identifier");
+          "my_stl::Tree  left_rotate(): \"x\": an undeclared identifier");
     }
 
     auto y = x->_right;
@@ -510,6 +511,6 @@ class Tree {
     delete_node(node);
   }
 };
-}  // namespace s21
+}  // namespace my_stl
 
-#endif  // SRC_INCLUDE_ASSOCIATIVE_UTILS_S21_TREE_H
+#endif  // SRC_INCLUDE_ASSOCIATIVE_UTILS_TREE_H

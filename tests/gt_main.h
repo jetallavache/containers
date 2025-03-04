@@ -5,15 +5,10 @@
 
 #include <gtest/gtest.h>
 
-#include "s21_stl/array/gt_array.h"
-#include "s21_stl/list/gt_list.h"
-#include "s21_stl/map/gt_map.h"
-#include "s21_stl/multiset/gt_multiset.h"
-#include "s21_stl/queue/gt_queue.h"
-#include "s21_stl/rb_tree/gt_tree.h"
-#include "s21_stl/set/gt_set.h"
-#include "s21_stl/stack/gt_stack.h"
-#include "s21_stl/vector/gt_vector.h"
+#include "my_stl/map/gt_map.h"
+#include "my_stl/multiset/gt_multiset.h"
+#include "my_stl/rb_tree/gt_tree.h"
+#include "my_stl/set/gt_set.h"
 
 #if (_GTEST_TIMEOUT == 1)
 

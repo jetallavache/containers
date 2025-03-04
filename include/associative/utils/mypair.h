@@ -3,7 +3,7 @@
 
 #include <utility>
 
-namespace s21 {
+namespace my_stl {
 template <class T1, class T2>
 class mypair : public std::pair<T1, T2> {
  public:
@@ -65,6 +65,6 @@ mypair<T1, T2> make_mypair(T1 x, T2 y) {
   typedef mypair<T1, T2> _Mypair_type;
   return _Mypair_type(x, y);
 }
-}  // namespace s21
+}  // namespace my_stl
 
 #endif  // SRC_INCLUDE_ASSOCIATIVE_UTILS_MYPAIR_H

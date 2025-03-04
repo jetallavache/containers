@@ -1,6 +1,6 @@
 # Executable names
-TEST_EXE = s21_containers.bin
-GCOV_EXE = s21_containers_gcov.bin
+TEST_EXE = containers.bin
+GCOV_EXE = containers_gcov.bin
 
 # Detected OS
 OS := $(shell uname -s)
@@ -55,7 +55,6 @@ INC_DIR = include
 TESTS_DIR = tests
 REPORT_DIR = report
 
-
 # Main code
 # ALL_INC_DIRS = $(shell find $(INC_DIR) -type d)
 ALL_INC_DIRS = include/ \
@@ -64,71 +63,53 @@ ALL_INC_DIRS = include/ \
 				include/sequence
 
 # INC_H = $(shell find $(INC_DIR) -maxdepth 5 -name "*.h")
-INC_H = include/associative/s21_set.h \
+INC_H = include/associative/utils/mypair.h \
 		include/associative/utils/rb_tree.h \
 		include/associative/utils/rb_tree_iter.h \
-		include/associative/utils/mypair.h \
 		include/associative/utils/rb_tree_node.h \
-		include/associative/s21_map.h \
-		include/associative/s21_multiset.h \
-		include/s21_containers.h \
-		include/s21_containersplus.h \
-		include/sequence/s21_queue.h \
-		include/sequence/s21_array.h \
-		include/sequence/s21_stack.h \
-		include/sequence/s21_vector.h \
-		include/sequence/s21_list.h 
+		include/associative/set.h \
+		include/associative/multiset.h \
+		include/associative/map.h \
+		include/containers.h
 
 # Test code
 # ALL_TESTS_DIRS = $(shell find $(TEST_DIR) -type d)
-ALL_TESTS_DIRS =	tests/ \
-					tests/utils \
-					tests/s21_stl \
-					tests/s21_stl/vector \
-					tests/s21_stl/list \
-					tests/s21_stl/rb_tree \
-					tests/s21_stl/array \
-					tests/s21_stl/multiset \
-					tests/s21_stl/map \
-					tests/s21_stl/set \
-					tests/s21_stl/queue \
-					tests/s21_stl/stack
-
+ALL_TESTS_DIRS = tests/ \
+					tests/my_stl \
+					tests/my_stl/map \
+					tests/my_stl/multiset \
+					tests/my_stl/rb_tree \
+					tests/my_stl/set	
+				
 # TESTS_C = $(notdir $(shell find $(TESTS_DIR) -maxdepth 5 -name "*.cc"))
-TESTS_C = 	tests/gt_main.cc \
-			tests/s21_stl/vector/gt_vector_all.cc \
-			tests/s21_stl/list/gt_list_all.cc \
-			tests/s21_stl/rb_tree/gt_tree_2_module_iterators.cc \
-			tests/s21_stl/rb_tree/gt_tree_1_module_member_function.cc \
-			tests/s21_stl/rb_tree/gt_tree_4_module_modifiers.cc \
-			tests/s21_stl/rb_tree/gt_tree_3_module_capacity.cc \
-			tests/s21_stl/rb_tree/gt_tree_5_module_lookup.cc \
-			tests/s21_stl/array/gt_array_all.cc \
-			tests/s21_stl/multiset/gt_multiset_all.cc \
-			tests/s21_stl/map/gt_map_5_module_lookup.cc \
-			tests/s21_stl/map/gt_map_3_module_capacity.cc \
-			tests/s21_stl/map/gt_map_2_module_element_access.cc \
-			tests/s21_stl/map/gt_map_1_module_members_function.cc \
-			tests/s21_stl/map/gt_map_4_module_modifiers.cc \
-			tests/s21_stl/set/gt_set_5_module_lookup.cc \
-			tests/s21_stl/set/gt_set_2_module_iterators.cc \
-			tests/s21_stl/set/gt_set_4_module_modifiers.cc \
-			tests/s21_stl/set/gt_set_3_module_capacity.cc \
-			tests/s21_stl/set/gt_set_1_module_members_function.cc \
-			tests/s21_stl/queue/gt_queue_all.cc \
-			tests/s21_stl/stack/gt_stack_all.cc
+TESTS_C = tests/gt_main.cc \
+			tests/my_stl/map/gt_map_1_module_members_function.cc \
+			tests/my_stl/map/gt_map_2_module_element_access.cc \
+			tests/my_stl/map/gt_map_3_module_capacity.cc \
+			tests/my_stl/map/gt_map_4_module_modifiers.cc \
+			tests/my_stl/map/gt_map_5_module_lookup.cc \
+			tests/my_stl/multiset/gt_multiset_1_module_member_function.cc \
+			tests/my_stl/multiset/gt_multiset_2_module_iterators.cc \
+			tests/my_stl/multiset/gt_multiset_3_module_capacity.cc \
+			tests/my_stl/multiset/gt_multiset_4_module_modifiers.cc \
+			tests/my_stl/multiset/gt_multiset_5_module_lookup.cc \
+			tests/my_stl/rb_tree/gt_tree_1_module_member_function.cc \
+			tests/my_stl/rb_tree/gt_tree_2_module_iterators.cc \
+			tests/my_stl/rb_tree/gt_tree_3_module_capacity.cc \
+			tests/my_stl/rb_tree/gt_tree_4_module_modifiers.cc \
+			tests/my_stl/rb_tree/gt_tree_5_module_lookup.cc \
+			tests/my_stl/set/gt_set_1_module_members_function.cc \
+			tests/my_stl/set/gt_set_2_module_iterators.cc \
+			tests/my_stl/set/gt_set_3_module_capacity.cc \
+			tests/my_stl/set/gt_set_4_module_modifiers.cc \
+			tests/my_stl/set/gt_set_5_module_lookup.cc
 
 # TESTS_H = $(shell find $(TESTS_DIR) -maxdepth 5 -name "*.h")
-TESTS_H = 	tests/gt_main.h \
-			tests/s21_stl/vector/gt_vector.h \
-			tests/s21_stl/list/gt_list.h \
-			tests/s21_stl/rb_tree/gt_tree.h \
-			tests/s21_stl/array/gt_array.h \
-			tests/s21_stl/multiset/gt_multiset.h \
-			tests/s21_stl/map/gt_map.h \
-			tests/s21_stl/set/gt_set.h \
-			tests/s21_stl/queue/gt_queue.h \
-			tests/s21_stl/stack/gt_stack.h
+TESTS_H = tests/gt_main.h \
+			tests/my_stl/map/gt_map.h \
+			tests/my_stl/multiset/gt_multiset.h \
+			tests/my_stl/rb_tree/gt_tree.h \
+			tests/my_stl/set/gt_set.h
 
 TESTS_O = $(addprefix $(OBJ_DIR)/, $(notdir $(TESTS_C:%.cc=%.o)))
 
