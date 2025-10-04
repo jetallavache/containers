@@ -1,4 +1,4 @@
-# stl-containers-lib
+# Containers
 
 ## Introduction
 
